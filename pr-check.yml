@@ -1,0 +1,26 @@
+name: PR Check
+
+# Triggers
+on:
+  pull-request:
+    branches: ["main"]
+
+# Jobs
+jobs:
+  build:
+    runs-on: ububtu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x, 22.x]
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.JS ${{ matrix..node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+      - run: npm ci
+      - run: npm run build --if-present
+      - run: npm test
