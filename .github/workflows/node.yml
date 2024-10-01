@@ -2,7 +2,7 @@ name: PR Check
 
 # Triggers
 on:
-  pull-request:
+  pull_request:
     branches: ["main"]
 
 # Jobs
@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - name: Use Node.JS ${{ matrix..node-version }}
+      - name: Use Node.JS ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
