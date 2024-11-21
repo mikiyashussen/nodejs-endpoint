@@ -15,7 +15,7 @@ jobs:
       - name: Build docker image
         run: docker build -t nodejs-endpoint .
       - name: Push image to dockerhub
-        run: docker push mikemoh/nodejs-docker/nodejs-endpoint:1.0
+        run: docker push mikemoh/nodejs-endpoint:1.0
     # build docker image
     # push it to dockerhub
 #   deploy:
