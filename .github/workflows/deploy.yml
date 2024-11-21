@@ -1,0 +1,32 @@
+name: Deploy
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Log in to dockerhub
+        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+      - name: Build docker image
+        run: docker build -t nodejs-endpoint:1.0
+      - name: Push image to dockerhub
+        run: docker push mikemoh/nodejs-docker/nodejs-endpoint:1.0
+    # build docker image
+    # push it to dockerhub
+#   deploy:
+#     needs: build
+#     runs-on: ubuntu-latest
+
+#     strategy:
+#       matrix:
+#         node-version: [22.x]
+
+# steps:
+# login to deployment server
+# pull docker image from docker hub
+# run docker container
