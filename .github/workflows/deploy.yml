@@ -13,9 +13,9 @@ jobs:
       - name: Log in to dockerhub
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
       - name: Build docker image
-        run: docker build -t nodejs-endpoint .
+        run: docker build -t mikemoh/nodejs-docker:1.0 .
       - name: Push image to dockerhub
-        run: docker push mikemoh/nodejs-endpoint:1.0
+        run: docker push mikemoh/nodejs-docker:1.0
     # build docker image
     # push it to dockerhub
 #   deploy:
