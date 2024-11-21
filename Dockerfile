@@ -1,4 +1,4 @@
-FROM lst-alpine3.19
+FROM lts-alpine3.19
 
 RUN mkdir -p /home/nodejs-endpoint
 
