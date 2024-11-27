@@ -16,17 +16,18 @@ jobs:
         run: docker build -t mikemoh/nodejs-docker:1.0 .
       - name: Push image to dockerhub
         run: docker push mikemoh/nodejs-docker:1.0
-    # build docker image
-    # push it to dockerhub
-#   deploy:
-#     needs: build
-#     runs-on: ubuntu-latest
 
-#     strategy:
-#       matrix:
-#         node-version: [22.x]
+  # deploy:
+  #   needs: build
+  #   runs-on: ubuntu-latest
 
-# steps:
-# login to deployment server
+  #   steps:
+  #     - name: Log in to aws
+  #       run: dsfs
+  #     - name: Pull docker img from dockerhub
+  #       run: docker pull mikemoh/nodejs-docker:1.0
+  #     - name: Run img in a container
+  #       run: docker run mikemoh/nodejs-docker:1.0
+  # login to deployment server
 # pull docker image from docker hub
 # run docker container

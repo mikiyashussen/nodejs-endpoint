@@ -4,4 +4,8 @@ RUN mkdir -p /home/nodejs-endpoint
 
 COPY . /home/nodejs-endpoint
 
-CMD ["node", "/home/nodejs-endpoint/app.js"]
+WORKDIR /home/nodejs-endpoint
+
+RUN npm install
+
+CMD ["node", "app.js"]
